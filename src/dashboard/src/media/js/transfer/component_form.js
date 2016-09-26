@@ -32,7 +32,7 @@ function createMetadataSetID() {
        set_id = results.uuid;
     },
     'error': function() {
-      alert('Error requesting metadata set ID: contact administrator.');
+      alert(gettext('Error requesting metadata set ID: contact administrator.'));
     }
   });
 
@@ -48,7 +48,7 @@ function removeMetadataForms(uuid) {
     'async': false,
     'cache': false,
     'error': function() {
-      alert('Failed to clean up metadata for UUID: ' + component.uuid);
+      alert(interpolate(gettext('Failed to clean up metadata for UUID: %(uuid)'), {'uuid': component.uuid}, true));
     }
   });
 }
@@ -171,10 +171,10 @@ var TransferComponentFormView = Backbone.View.extend({
 
     // add button to add paths via a pop-up selector
     var $buttonContainer = $('<div></div>')
-      , $addButton = $('<span id="path_add_button" class="btn btn-default">Browse</span>')
+      , $addButton = $('<span id="path_add_button" class="btn btn-default">' + gettext('Browse') + '</span>')
       , $sourceDirSelect = $('<select id="path_source_select" class="form-control"></select>')
-      , $startTransferButton = $('<span id="start_transfer_button" class="btn btn-success">Start transfer</span>')
-      , $metadataEditButton = $('<span id="transfer_metadata_edit_button" class="btn btn-default metadata-edit" title="Metadata entered in this form will be associated with the next component added to this transfer. Data will not be used if no component is added after the form is saved.">Add next</span>')
+      , $startTransferButton = $('<span id="start_transfer_button" class="btn btn-success">' + gettext('Start transfer') + '</span>')
+      , $metadataEditButton = $('<span id="transfer_metadata_edit_button" class="btn btn-default metadata-edit" title="' + gettext('Metadata entered in this form will be associated with the next component added to this transfer. Data will not be used if no component is added after the form is saved.') + '">' + gettext('Add next') + '</span>')
       , self = this;
 
     $buttonContainer
@@ -251,11 +251,11 @@ var TransferComponentFormView = Backbone.View.extend({
 
       if (!transferName)
       {
-        alert('Please enter a transfer name');
+        alert(gettext('Please enter a transfer name'));
       } else {
         var paths = self.addedPaths();
         if (!paths.length) {
-          alert('Please click "Browse" to add one or more paths from the source directory.');
+          alert(gettext('Please click "Browse" to add one or more paths from the source directory.'));
         } else {
           var transferData = {
             'name':            transferName,

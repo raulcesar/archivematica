@@ -47,7 +47,7 @@ function createDirectoryPicker(locationUUID, baseDirectory, modalCssId, targetCs
 
   selector.options.actionHandlers = [{
     name: 'Select',
-    description: 'Select',
+    description: gettext('Select'),
     iconHtml: 'Add',
     logic: function(result) {
       // disable transfer type select as disk image transfer types
@@ -58,7 +58,7 @@ function createDirectoryPicker(locationUUID, baseDirectory, modalCssId, targetCs
       var decoded_path = Base64.decode(result.path)
 
       if (components[decoded_path]) {
-        alert("Error: The selected path is already present in this transfer.");
+        alert(gettext("Error: The selected path is already present in this transfer."));
         return;
       }
 
@@ -99,7 +99,8 @@ function createDirectoryPicker(locationUUID, baseDirectory, modalCssId, targetCs
       .children('.transfer_path_icons')
       .children('.transfer_path_delete_icon')
       .click(function() {
-        if (confirm('Are you sure you want to remove this transfer component (' + $(this).parent().prev().text() + ')?')) {
+        message = interpolate(gettext('Are you sure you want to remove this transfer component (%s)?'), [$(this).parent().prev().text()]);
+        if (confirm(message)) {
           var path = $(this).parent().prev().prop("id").trim();
           var component = components[path];
 

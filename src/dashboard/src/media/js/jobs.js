@@ -527,7 +527,7 @@ var MicroserviceGroupView = Backbone.View.extend({
             jobDiv.append(subJobDiv);
 
             // add a "link" to toggle subjob display
-            var subjobToggle = $('<span>&nbsp;</span><a>(more)</a>');
+            var subjobToggle = $('<span>&nbsp;</span><a>' + gettext('(more)') + '</a>');
 
             $(jobView.el)
               .children(':nth-child(1)')
@@ -542,7 +542,7 @@ var MicroserviceGroupView = Backbone.View.extend({
                 subJobDiv.slideDown(function() {
                   // get rid of the "Job:" label to visually differentiate from
                   // top-level jobs
-                  $('.subjob .job .job-detail-microservice .job-type-label').text('Subjob: ');
+                  $('.subjob .job .job-detail-microservice .job-type-label').text(gettext('Subjob: '));
                 });
               }
             });
@@ -597,13 +597,13 @@ var BaseJobView = Backbone.View.extend({
       dialog.append(table)
 
       return dialog.dialog({
-          title: this.model.sip.get('directory') + ' &raquo ' + this.model.get('type') + ' &raquo Tasks',
+          title: interpolate(gettext('%(directory) &raquo; %(type) &raquo; Tasks'), {'directory': this.model.sip.get('directory'), 'type': this.model.get('type')}, true),
           width: options.width,
           height: options.height,
           modal: true,
           buttons: [
             {
-              text: 'Close',
+              text: gettext('Close'),
               click: function() { $(this).dialog('close'); }
             }]
         });
@@ -694,8 +694,7 @@ var BaseJobView = Backbone.View.extend({
           var $proxySelect = $select.clone();
 
           // display action selector in modal window
-          $('<div class="modal hide" id="big-choice-select-modal"><div class="modal-header"><button type="button" class="close" id="big-choice-select-close" data-dismiss="modal">×</button><h3>Select an action...</h3></div><div class="modal-body" id="big-choice-select-body"></div><div class="modal-footer"><a href="#" class="btn btn-default" data-dismiss="modal" id="big-choice-select-cancel">Cancel</a></div></div>')
-          .modal({show: true});
+          $('<div class="modal hide" id="big-choice-select-modal"><div class="modal-header"><button type="button" class="close" id="big-choice-select-close" data-dismiss="modal">×</button><h3>' + gettext('Select an action...') + '</h3></div><div class="modal-body" id="big-choice-select-body"></div><div class="modal-footer"><a href="#" class="btn btn-default" data-dismiss="modal" id="big-choice-select-cancel">' + gettext('Cancel') + '</a></div></div>').modal({show: true});
           $('#big-choice-select-body').append($proxySelect);
 
           // style clone as Select2
@@ -878,7 +877,7 @@ BaseAppView = Backbone.View.extend({
         .bind('idle.idleTimer', function()
           {
             self.idle = true;
-            $('<span id="polling-notification">Polling was disabled until next user activity is detected.</span>').appendTo('body');
+            $('<span id="polling-notification">' + gettext('Polling was disabled until next user activity is detected.') + '</span>').appendTo('body');
           })
         .bind('active.idleTimer', function()
           {
@@ -1013,7 +1012,7 @@ BaseAppView = Backbone.View.extend({
       // set up previous/next paging links
       var self = this;
 
-      var $prev = $('<a href="#">Previous</a>');
+      var $prev = $('<a href="#">' + gettext('Previous') + '</a>');
 
       $prev.click(function() {
         $('.sip').hide();
@@ -1028,7 +1027,7 @@ BaseAppView = Backbone.View.extend({
           $('.grid-pager-previous-area').append($prev);
         }
 
-      var $next = $('<a href="#">Next</a>');
+      var $next = $('<a href="#">' + gettext('Next') + '</a>');
 
       $next.click(function() {
         $('.sip').hide();
@@ -1066,7 +1065,7 @@ BaseAppView = Backbone.View.extend({
           },
         error: function()
           {
-            window.statusWidget.text('Error trying to connect to database. Trying again...', true);
+            window.statusWidget.text(gettext('Error trying to connect to database. Trying again...'), true);
           },
         success: function(response)
           {
@@ -1116,7 +1115,7 @@ BaseAppView = Backbone.View.extend({
             }
             else
             {
-              window.statusWidget.text('Error trying to connect to MCP server. Trying again...', true);
+              window.statusWidget.text(gettext('Error trying to connect to MCP server. Trying again...'), true);
             }
           },
         complete: function()

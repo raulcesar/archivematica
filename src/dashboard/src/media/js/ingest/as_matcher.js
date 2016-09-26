@@ -562,10 +562,10 @@ var ATKMatcherView = Backbone.View.extend({
         self.resetBackgroundOfResourceTableRows();
 
         } else {
-          self.notify('No objects selected.');
+          self.notify(gettext('No objects selected.'));
         }
       } else {
-        self.notify('No resource selected.');
+        self.notify(gettext('No resource selected.'));
       }
     };
 
@@ -665,11 +665,11 @@ var ATKMatcherView = Backbone.View.extend({
     }, 2000);
 
     dialog.dialog({
-      title: 'Warning',
+      title: gettext('Warning'),
       width: 640,
       height: 200,
       buttons: [{
-        text: 'Dismiss',
+        text: gettext('Dismiss'),
         click: function() { $(this).dialog('close'); }
       }]
     });
