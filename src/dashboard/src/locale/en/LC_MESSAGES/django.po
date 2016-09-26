@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-28 23:20+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: components/administration/forms.py:322
+msgid "None"
+msgstr ""
+
+#: settings/common.py:69
+msgid "French"
+msgstr ""
+
+#: settings/common.py:70
+msgid "English"
+msgstr ""
+
+#: settings/common.py:71
+msgid "Spanish"
+msgstr ""
+
+#: templates/administration/language.html:19
+#: templates/administration/sidebar.html:50
+msgid "Language"
+msgstr ""
+
+#: templates/administration/language.html:30
+msgid "Select one of the following languages available:"
+msgstr ""
+
+#: templates/administration/language.html:44
+msgid ""
+"Your choice will be recorded in the internal session store which doesn't not "
+"retain data forever."
+msgstr ""
+
+#: templates/administration/language.html:50
+msgid "Change"
+msgstr ""
+
+#: templates/administration/processing.html:4
+#: templates/administration/processing.html:5
+#: templates/administration/processing_edit.html:4
+#: templates/administration/processing_edit.html:5
+msgid "Administration"
+msgstr ""
+
+#: templates/administration/processing.html:18
+#: templates/administration/processing_edit.html:18
+msgid "Processing configuration"
+msgstr ""
+
+#: templates/administration/processing.html:27
+msgid "Edit"
+msgstr ""
+
+#: templates/administration/processing.html:29
+msgid "Delete"
+msgstr ""
+
+#: templates/administration/processing.html:38
+msgid "No processing configuration file found (*ProcessingMCP.xml)."
+msgstr ""
+
+#: templates/administration/processing.html:45
+msgid ""
+"The following files are being ignored because they don't meet the "
+"requirements."
+msgstr ""
+
+#: templates/administration/processing.html:55
+msgid "Add"
+msgstr ""
+
+#: templates/administration/processing_edit.html:39
+msgid "Save"
+msgstr ""
+
+#: templates/administration/processing_edit.html:40
+msgid "Cancel"
+msgstr ""
