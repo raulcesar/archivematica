@@ -26,3 +26,9 @@ FIXTURE_DIRS = (
     'tests/fixtures/',
     '../archivematicaCommon/tests/fixtures/'
 )
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
