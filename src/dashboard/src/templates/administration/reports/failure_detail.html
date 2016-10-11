@@ -1,8 +1,9 @@
 {% extends "layout_fluid.html" %}
 {% load breadcrumb %}
+{% load i18n %}
 
-{% block title %}Administration{% endblock %}
-{% block h1 %}Administration{% endblock %}
+{% block title %}{% trans "Administration" %}{% endblock %}
+{% block h1 %}{% trans "Administration" %}{% endblock %}
 {% block page_id %}Administration{% endblock %}
 
 {% block content %}
@@ -13,7 +14,11 @@
 
     <div class="col-md-10">
 
-      <h3>Failure report: {{ report.unitname }}</h3>
+      <h3>
+        {% blocktrans with name=report.unitname %}
+          Failure report: {{ name }}
+        {% endblocktrans %}
+      </h3>
       <code>{{ report.unitidentifier }}</code>
 
       <p/>
